@@ -5,7 +5,6 @@ syntax on
 
 set background=dark
 set nocompatible
-set laststatus=2
 
 set expandtab
 set shiftwidth=4
@@ -14,6 +13,7 @@ set tabstop=4
 set autoindent
 set smartindent
 set hlsearch
+set laststatus=2
 
 set backspace=indent,eol,start
 
