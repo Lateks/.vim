@@ -1,9 +1,11 @@
-runtime vimrc_ecample.vim
+runtime vimrc_example.vim
+call pathogen#infect()
 
 syntax on
 
 set background=dark
 set nocompatible
+set laststatus=2
 
 set expandtab
 set shiftwidth=4
