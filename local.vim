@@ -31,7 +31,11 @@ if has("gui_running")
 
     set visualbell t_vb=
 
-    set guifont=Consolas\ 9
+    if has("gui_macvim")
+        set guifont=Consolas:h12
+    elseif has("unix")
+        set guifont=Consolas\ 9
+    endif
 
     colorscheme molokai
 endif
