@@ -37,7 +37,7 @@ if has("gui_running")
         set guifont=Consolas\ 9
     endif
 
-    colorscheme molokai
+    colorscheme oceandeep
 endif
 
 if has("autocmd")
