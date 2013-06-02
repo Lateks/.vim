@@ -16,3 +16,6 @@
 [submodule "bundle/glsl"]
 	path = bundle/glsl
 	url = https://github.com/vim-scripts/glsl.vim
+[submodule "bundle/lua-inspect"]
+	path = bundle/lua-inspect
+	url = https://github.com/xolox/vim-lua-inspect.git
