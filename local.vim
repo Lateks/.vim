@@ -3,7 +3,7 @@ call pathogen#infect()
 
 syntax on
 
-set background=dark
+set background=light
 set nocompatible
 
 set expandtab
@@ -33,9 +33,11 @@ if has("gui_running")
 
     if has("win32")
         set guifont=Consolas:h12
+    elseif has("macunix")
+        set guifont=Menlo\ Regular:h14
     endif
 
-    colorscheme oceandeep
+    colorscheme solarized
 endif
 
 if has("autocmd")
