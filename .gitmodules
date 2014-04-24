@@ -22,3 +22,6 @@
 [submodule "bundle/rust"]
 	path = bundle/rust
 	url = https://github.com/wting/rust.vim.git
+[submodule "bundle/vim2hs"]
+	path = bundle/vim2hs
+	url = git@github.com:dag/vim2hs.git
