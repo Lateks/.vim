@@ -33,11 +33,15 @@ if has("gui_running")
 
     if has("win32")
         set guifont=Consolas:h12
+        colorscheme solarized
     elseif has("macunix")
         set guifont=Menlo\ Regular:h14
+        colorscheme solarized
+    elseif has("unix")
+        set guifont=Inconsolata\ 10
+        colorscheme oceandeep
     endif
 
-    colorscheme solarized
 endif
 
 if has("autocmd")
