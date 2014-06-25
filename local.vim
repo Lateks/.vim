@@ -2,6 +2,7 @@ runtime vimrc_example.vim
 call pathogen#infect()
 
 syntax on
+filetype plugin indent on
 
 set background=light
 set nocompatible
@@ -45,11 +46,15 @@ if has("gui_running")
 endif
 
 if has("autocmd")
-    filetype on
-
     au FileType ruby        setlocal ts=2 sw=2 sts=2 expandtab
     au FileType python      setlocal ts=4 sw=4 sts=4 expandtab
     au FileType javascript  setlocal ts=2 sw=2 sts=2 expandtab
     au BufNewFile,BufRead,BufEnter *.cpp,*.hpp set syntax=cpp11
     au BufNewFile,BufRead,BufEnter *.glsl,*.vert,*.frag,*.geom set syntax=glsl
+endif
+
+if executable('ocamlmerlin') && has('python')
+  let s:ocamlmerlin = substitute(system('opam config var share'), '\n$', '', '''') . "/ocamlmerlin"
+  execute "set rtp+=".s:ocamlmerlin."/vim"
+  execute "set rtp+=".s:ocamlmerlin."/vimbufsync"
 endif
