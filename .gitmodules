@@ -25,3 +25,6 @@
 [submodule "bundle/vim2hs"]
 	path = bundle/vim2hs
 	url = git@github.com:dag/vim2hs.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git

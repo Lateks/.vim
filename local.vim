@@ -58,3 +58,5 @@ if executable('ocamlmerlin') && has('python')
   execute "set rtp+=".s:ocamlmerlin."/vim"
   execute "set rtp+=".s:ocamlmerlin."/vimbufsync"
 endif
+
+let g:syntastic_ocaml_checkers = ['merlin']
