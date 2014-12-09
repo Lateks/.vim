@@ -52,6 +52,7 @@ if has("autocmd")
     au FileType javascript  setlocal ts=2 sw=2 sts=2 expandtab
     au BufNewFile,BufRead,BufEnter *.cpp,*.hpp set syntax=cpp11
     au BufNewFile,BufRead,BufEnter *.glsl,*.vert,*.frag,*.geom set syntax=glsl
+    au BufNewFile,BufRead,BufEnter *.qml set syntax=qml
 endif
 
 if executable('ocamlmerlin') && has('python')
