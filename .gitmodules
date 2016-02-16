@@ -46,3 +46,6 @@
 [submodule "bundle/vim-fsharp"]
 	path = bundle/vim-fsharp
 	url = https://github.com/fsharp/vim-fsharp.git
+[submodule "bundle/kotlin-vim"]
+	path = bundle/kotlin-vim
+	url = https://github.com/udalov/kotlin-vim.git
