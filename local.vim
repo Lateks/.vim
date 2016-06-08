@@ -49,7 +49,7 @@ endif
 if has("autocmd")
     au FileType ruby        setlocal ts=2 sw=2 sts=2 expandtab
     au FileType python      setlocal ts=4 sw=4 sts=4 expandtab
-    au FileType javascript  setlocal ts=2 sw=2 sts=2 expandtab
+    au FileType javascript  setlocal ts=4 sw=4 sts=4 expandtab
     au BufNewFile,BufRead,BufEnter *.cpp,*.hpp set syntax=cpp11
     au BufNewFile,BufRead,BufEnter *.glsl,*.vert,*.frag,*.geom set syntax=glsl
     au BufNewFile,BufRead,BufEnter *.qml set syntax=qml
