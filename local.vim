@@ -69,3 +69,9 @@ let g:ctrlp_extensions = ['line', 'dir']
 let g:airline_theme='powerlineish'
 let g:airline#extensions#tabline#enabled = 1
 
+let mapleader = ";"
+
+map <leader>n :bn<cr>
+map <leader>p :bp<cr>
+map <leader>d :bd<cr>
+
