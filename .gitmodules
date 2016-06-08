@@ -49,3 +49,6 @@
 [submodule "bundle/kotlin-vim"]
 	path = bundle/kotlin-vim
 	url = https://github.com/udalov/kotlin-vim.git
+[submodule "/Users/tuuli/.vim/bundle/vim-coffee-script"]
+	path = /Users/tuuli/.vim/bundle/vim-coffee-script
+	url = https://github.com/grayrest/vim-coffee-script.git
