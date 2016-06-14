@@ -71,7 +71,9 @@ let g:airline#extensions#tabline#enabled = 1
 
 let mapleader = ";"
 
-map <leader>n :bn<cr>
-map <leader>p :bp<cr>
-map <leader>d :bd<cr>
+nmap <leader>n :bn<cr>
+nmap <leader>p :bp<cr>
+nmap <leader>d :bd<cr>
+nmap <leader>r :CtrlPMRU<cr>
+nmap <leader>b :CtrlPBuffer<cr>
 
