@@ -54,6 +54,9 @@ if has("autocmd")
     au BufNewFile,BufRead,BufEnter *.cpp,*.hpp set syntax=cpp11
     au BufNewFile,BufRead,BufEnter *.glsl,*.vert,*.frag,*.geom set syntax=glsl
     au BufNewFile,BufRead,BufEnter *.qml set syntax=qml
+
+    au bufwritepost *.js silent !standard-format -w %
+    set autoread
 endif
 
 if executable('ocamlmerlin') && has('python')
@@ -63,7 +66,7 @@ if executable('ocamlmerlin') && has('python')
 endif
 
 let g:syntastic_ocaml_checkers = ['merlin']
-let g:syntastic_javascript_checkers = ['jsxhint']
+let g:syntastic_javascript_checkers = ['standard']
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++'
 let g:ctrlp_extensions = ['line', 'dir']
