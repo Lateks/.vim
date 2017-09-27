@@ -89,4 +89,9 @@ nmap <leader>p :bp<cr>
 nmap <leader>d :bd<cr>
 nmap <leader>r :CtrlPMRU<cr>
 nmap <leader>b :CtrlPBuffer<cr>
-
+nmap <leader>s :CtrlPMixed<cr>
+nmap <leader>to :NERDTree<cr>
+nmap <leader>tc :NERDTreeClose<cr>
+nmap <leader>l r<cr>
+nmap <leader>nl f<space>r<cr>
+nmap <leader>w viw"0p
