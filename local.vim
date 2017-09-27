@@ -55,7 +55,6 @@ if has("autocmd")
     au BufNewFile,BufRead,BufEnter *.glsl,*.vert,*.frag,*.geom set syntax=glsl
     au BufNewFile,BufRead,BufEnter *.qml set syntax=qml
 
-    au bufwritepost *.js silent !standard-format -w %
     set autoread
 endif
 
@@ -65,14 +64,23 @@ if executable('ocamlmerlin') && has('python')
   execute "set rtp+=".s:ocamlmerlin."/vimbufsync"
 endif
 
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = './node_modules/.bin/eslint'
+
 let g:syntastic_ocaml_checkers = ['merlin']
-let g:syntastic_javascript_checkers = ['standard']
+
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++'
+
 let g:ctrlp_extensions = ['line', 'dir']
 
 let g:airline_theme='powerlineish'
 let g:airline#extensions#tabline#enabled = 1
+
+let g:jsx_ext_required = 0
 
 let mapleader = ";"
 
