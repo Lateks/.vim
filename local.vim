@@ -37,8 +37,8 @@ if has("gui_running")
         set guifont=Consolas:h12
         colorscheme solarized
     elseif has("macunix")
-        set guifont=Menlo\ Regular:h12
-        colorscheme flattown
+        set guifont=Monaco:h13
+        colorscheme pyte
     elseif has("unix")
         set guifont=Inconsolata\ 10
         colorscheme oceandeep
