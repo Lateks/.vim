@@ -87,6 +87,7 @@ let mapleader = ";"
 
 nmap <leader>n :bn<cr>
 nmap <leader>p :bp<cr>
+nmap <leader>f :Prettier<cr>
 nmap <leader>d :bd<cr>
 nmap <leader>r :CtrlPMRU<cr>
 nmap <leader>b :CtrlPBuffer<cr>
