@@ -68,3 +68,6 @@
 [submodule "bundle/tsuquyomi"]
 	path = bundle/tsuquyomi
 	url = https://github.com/Quramy/tsuquyomi.git
+[submodule "bundle/vim-elixir"]
+	path = bundle/vim-elixir
+	url = git@github.com:elixir-editors/vim-elixir.git
