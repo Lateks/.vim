@@ -81,6 +81,7 @@ let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++'
 
 let g:ctrlp_extensions = ['line', 'dir']
+let g:ctrlp_custom_ignore = { 'dir':  '\v[\/](node_modules|\.git)$' }
 
 let g:airline_theme='powerlineish'
 let g:airline#extensions#tabline#enabled = 1
