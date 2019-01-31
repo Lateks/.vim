@@ -65,6 +65,10 @@ if executable('ocamlmerlin') && has('python')
   execute "set rtp+=".s:ocamlmerlin."/vimbufsync"
 endif
 
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 
