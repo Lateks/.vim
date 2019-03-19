@@ -82,6 +82,9 @@ let g:syntastic_check_on_wq = 1
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exec = './node_modules/.bin/eslint'
 
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
+
 let g:syntastic_ocaml_checkers = ['merlin']
 
 let g:syntastic_cpp_compiler = 'clang++'
