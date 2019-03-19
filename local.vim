@@ -16,6 +16,7 @@ set autoindent
 set smartindent
 set hlsearch
 set laststatus=2
+set smartcase
 
 set backspace=indent,eol,start
 
@@ -51,7 +52,13 @@ if has("autocmd")
     au FileType ruby        setlocal ts=2 sw=2 sts=2 expandtab
     au FileType python      setlocal ts=4 sw=4 sts=4 expandtab
     au FileType javascript  setlocal ts=2 sw=2 sts=2 expandtab
-    au FileType typescript nmap <buffer> <leader>t : <C-u>echo tsuquyomi#hint()<CR>
+    au FileType typescript  setlocal ts=2 sw=2 sts=2 expandtab
+    au FileType javascript  nmap <buffer> <leader>tt :TernType<cr>
+    au FileType javascript  nmap <buffer> <leader>td :TernDef<cr>
+    au FileType javascript  nmap <buffer> <leader>tr :TernRefs<cr>
+    au FileType javascript  nmap <buffer> <leader>tn :TernRename<cr>
+    au FileType typescript  nmap <buffer> <leader>t : <C-u>echo tsuquyomi#hint()<cr>
+    au BufNewFile,BufRead,BufEnter *.tsx setlocal ts=2 sw=2 sts=2 expandtab
     au BufNewFile,BufRead,BufEnter *.cpp,*.hpp set syntax=cpp11
     au BufNewFile,BufRead,BufEnter *.glsl,*.vert,*.frag,*.geom set syntax=glsl
     au BufNewFile,BufRead,BufEnter *.qml set syntax=qml
@@ -92,6 +99,7 @@ let mapleader = ";"
 
 nmap <leader>n :bn<cr>
 nmap <leader>p :bp<cr>
+nmap <leader>w :w<cr>
 nmap <leader>f :Prettier<cr>
 nmap <leader>d :bd<cr>
 nmap <leader>r :CtrlPMRU<cr>
@@ -100,4 +108,6 @@ nmap <leader>s :CtrlPMixed<cr>
 nmap <leader>to :NERDTree<cr>
 nmap <leader>tc :NERDTreeClose<cr>
 nmap <leader>l f<space>r<cr>
-nmap <leader>w viw"0p
+nmap <leader>q :qa<cr>
+nmap <leader>m :marks<cr>
+nmap <leader>a :Ack<Space>
