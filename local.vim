@@ -1,9 +1,28 @@
-runtime vimrc_example.vim
-call pathogen#infect()
+call plug#begin('~/.vim/plugged')
 
-syntax on
+Plug 'mileszs/ack.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+
+Plug 'tpope/vim-fugitive'
+Plug 'tommcdo/vim-fugitive-blame-ext'
+
+Plug 'altercation/vim-colors-solarized'
+
+Plug 'vim-syntastic/syntastic'
+
+Plug 'Quramy/tsuquyomi'
+Plug 'leafgarland/typescript-vim'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'prettier/vim-prettier'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+call plug#end()
+
 filetype on
-filetype plugin indent on
 
 set background=light
 set nocompatible
