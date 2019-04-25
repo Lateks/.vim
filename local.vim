@@ -7,18 +7,26 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tommcdo/vim-fugitive-blame-ext'
 
-Plug 'altercation/vim-colors-solarized'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 Plug 'vim-syntastic/syntastic'
 
+Plug 'tpope/vim-surround'
+
+Plug 'altercation/vim-colors-solarized'
+
+" JS/TS/JSX etc.
 Plug 'Quramy/tsuquyomi'
 Plug 'leafgarland/typescript-vim'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier'
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Lisp/Clojure/Racket etc.
+Plug 'tpope/vim-fireplace'
+Plug 'vim-scripts/paredit.vim'
+Plug 'venantius/vim-cljfmt'
 
 call plug#end()
 
@@ -72,11 +80,8 @@ if has("autocmd")
     au FileType python      setlocal ts=4 sw=4 sts=4 expandtab
     au FileType javascript  setlocal ts=2 sw=2 sts=2 expandtab
     au FileType typescript  setlocal ts=2 sw=2 sts=2 expandtab
-    au FileType javascript  nmap <buffer> <leader>tt :TernType<cr>
-    au FileType javascript  nmap <buffer> <leader>td :TernDef<cr>
-    au FileType javascript  nmap <buffer> <leader>tr :TernRefs<cr>
-    au FileType javascript  nmap <buffer> <leader>tn :TernRename<cr>
     au FileType typescript  nmap <buffer> <leader>t : <C-u>echo tsuquyomi#hint()<cr>
+    au Filetype clojure     nmap <buffer> <leader>r :Require<cr>
     au BufNewFile,BufRead,BufEnter *.tsx setlocal ts=2 sw=2 sts=2 expandtab
     au BufNewFile,BufRead,BufEnter *.cpp,*.hpp set syntax=cpp11
     au BufNewFile,BufRead,BufEnter *.glsl,*.vert,*.frag,*.geom set syntax=glsl
@@ -127,7 +132,6 @@ nmap <leader>p :bp<cr>
 nmap <leader>w :w<cr>
 nmap <leader>f :Prettier<cr>
 nmap <leader>d :bd<cr>
-nmap <leader>r :CtrlPMRU<cr>
 nmap <leader>b :CtrlPBuffer<cr>
 nmap <leader>s :CtrlPMixed<cr>
 nmap <leader>to :NERDTree<cr>
