@@ -132,5 +132,9 @@ nmap <leader>to :NERDTree<cr>
 nmap <leader>tc :NERDTreeClose<cr>
 nmap <leader>l f<space>r<cr>
 nmap <leader>q :qa<cr>
+nmap <leader>co :copen<cr>
+nmap <leader>cc :ccl<cr>
+nmap <leader>lo :lopen<cr>
+nmap <leader>lc :lcl<cr>
 nmap <leader>m :marks<cr>
 nmap <leader>a :Ack<Space>
