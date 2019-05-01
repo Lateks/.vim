@@ -65,12 +65,14 @@ if has("gui_running")
         set guifont=Consolas:h12
         colorscheme solarized
     elseif has("macunix")
-        set guifont=Monaco:h13
-        colorscheme pyte
+        set guifont=Menlo:h13
+        colorscheme autumnleaf
     elseif has("unix")
         set guifont=Inconsolata\ 10
         colorscheme oceandeep
     endif
+elseif has("gui_vimr")
+    colorscheme autumnleaf
 else
     colorscheme flattown
 endif
