@@ -92,6 +92,10 @@ if has("autocmd")
     set autoread
 endif
 
+if has("nvim")
+    :tnoremap <Esc> <C-\><C-n>
+endif
+
 if executable('ocamlmerlin') && has('python')
   let s:ocamlmerlin = substitute(system('opam config var share'), '\n$', '', '''') . "/ocamlmerlin"
   execute "set rtp+=".s:ocamlmerlin."/vim"
