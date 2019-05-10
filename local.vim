@@ -68,8 +68,8 @@ if has("gui_running")
         set guifont=Menlo:h13
         colorscheme autumnleaf
     elseif has("unix")
-        set guifont=Inconsolata\ 10
-        colorscheme oceandeep
+        set guifont=Fira\ Mono\ 11
+        colorscheme autumnleaf
     endif
 elseif has("gui_vimr")
     colorscheme autumnleaf
