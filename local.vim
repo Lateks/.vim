@@ -30,10 +30,15 @@ Plug 'venantius/vim-cljfmt'
 
 call plug#end()
 
+set swapfile directory=~/.vim/tmp
+set undofile undodir=~/.vim/tmp
+set backup backupdir=~/.vim/tmp
+
 filetype on
 
 set background=light
 set nocompatible
+set number
 
 set expandtab
 set shiftwidth=4
