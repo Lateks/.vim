@@ -53,7 +53,7 @@ set smartcase
 set backspace=indent,eol,start
 
 set list
-set listchars=tab:▸\ ,extends:❯,precedes:❮,trail:.,nbsp:.
+set listchars=tab:»\ ,extends:❯,precedes:❮,trail:.,nbsp:.
 
 if has("gui_running")
     set go-=T
