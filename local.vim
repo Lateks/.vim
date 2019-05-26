@@ -83,6 +83,8 @@ else
 endif
 
 if has("autocmd")
+    au FileType go          setlocal noexpandtab
+    au FileType go          setlocal nolist
     au FileType ruby        setlocal ts=2 sw=2 sts=2 expandtab
     au FileType python      setlocal ts=4 sw=4 sts=4 expandtab
     au FileType javascript  setlocal ts=2 sw=2 sts=2 expandtab
