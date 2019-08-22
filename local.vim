@@ -4,6 +4,12 @@ Plug 'mileszs/ack.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-speeddating'
+Plug 'mattn/calendar-vim'
+
+Plug 'jceb/vim-orgmode'
+
 Plug 'tpope/vim-fugitive'
 Plug 'tommcdo/vim-fugitive-blame-ext'
 
@@ -11,8 +17,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'vim-syntastic/syntastic'
-
-Plug 'tpope/vim-surround'
 
 Plug 'altercation/vim-colors-solarized'
 
@@ -140,6 +144,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:jsx_ext_required = 0
 
 let mapleader = ";"
+let maplocalleader = "\\"
 
 nmap <leader>n :bn<cr>
 nmap <leader>p :bp<cr>
