@@ -20,6 +20,8 @@ Plug 'vim-syntastic/syntastic'
 
 Plug 'altercation/vim-colors-solarized'
 
+Plug 'fatih/vim-go'
+
 " JS/TS/JSX etc.
 Plug 'Quramy/tsuquyomi'
 Plug 'leafgarland/typescript-vim'
