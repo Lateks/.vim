@@ -33,6 +33,7 @@ Plug 'prettier/vim-prettier'
 Plug 'tpope/vim-fireplace'
 Plug 'vim-scripts/paredit.vim'
 Plug 'venantius/vim-cljfmt'
+Plug 'bakpakin/janet.vim'
 
 call plug#end()
 
