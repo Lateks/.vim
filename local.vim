@@ -73,15 +73,18 @@ if has("gui_running")
 
     set visualbell t_vb=
 
+    if has("linux")
+        colorscheme flattown
+    else
+        colorscheme autumnleaf
+    endif
+
     if has("win32")
         set guifont=Consolas:h12
-        colorscheme solarized
     elseif has("macunix")
         set guifont=Menlo:h13
-        colorscheme autumnleaf
     elseif has("unix")
         set guifont=Fira\ Mono\ 11
-        colorscheme autumnleaf
     endif
 elseif has("gui_vimr")
     colorscheme autumnleaf
