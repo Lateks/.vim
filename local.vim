@@ -75,16 +75,16 @@ if has("gui_running")
 
     if has("linux")
         colorscheme flattown
+        set guifont=Source\ Code\ Pro\ 11
     else
         colorscheme autumnleaf
-    endif
-
-    if has("win32")
-        set guifont=Consolas:h12
-    elseif has("macunix")
-        set guifont=Menlo:h13
-    elseif has("unix")
-        set guifont=Fira\ Mono\ 11
+        if has("win32")
+            set guifont=Consolas:h12
+        elseif has("macunix")
+            set guifont=Menlo:h13
+        elseif has("unix")
+            set guifont=Fira\ Mono\ 11
+        endif
     endif
 elseif has("gui_vimr")
     colorscheme autumnleaf
