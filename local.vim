@@ -22,11 +22,12 @@ Plug 'altercation/vim-colors-solarized'
 
 Plug 'fatih/vim-go'
 
+" LSP
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " JS/TS/JSX etc.
-Plug 'Quramy/tsuquyomi'
 Plug 'leafgarland/typescript-vim'
 Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier'
 
 " Lisp/Clojure/Racket etc.
@@ -37,6 +38,7 @@ Plug 'bakpakin/janet.vim'
 
 call plug#end()
 
+" Background color fix for kitty terminal emu
 let &t_ut=''
 
 set swapfile directory=~/.vim/tmp
@@ -102,7 +104,6 @@ if has("autocmd")
     au FileType python      setlocal ts=4 sw=4 sts=4 expandtab
     au FileType javascript  setlocal ts=2 sw=2 sts=2 expandtab
     au FileType typescript  setlocal ts=2 sw=2 sts=2 expandtab
-    au FileType typescript  nmap <buffer> <leader>t : <C-u>echo tsuquyomi#hint()<cr>
     au Filetype clojure     nmap <buffer> <leader>r :Require<cr>
     au BufNewFile,BufRead,BufEnter *.tsx setlocal ts=2 sw=2 sts=2 expandtab
     au BufNewFile,BufRead,BufEnter *.cpp,*.hpp set syntax=cpp11
@@ -136,8 +137,7 @@ let g:syntastic_aggregate_errors = 1
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exec = './node_modules/.bin/eslint'
 
-let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint', 'eslint']
+let g:syntastic_typescript_checkers = ['tslint', 'eslint']
 let g:syntastic_typescript_eslint_exec = './node_modules/.bin/eslint'
 
 let g:syntastic_ocaml_checkers = ['merlin']
@@ -173,3 +173,17 @@ nmap <leader>lo :lopen<cr>
 nmap <leader>lc :lcl<cr>
 nmap <leader>m :marks<cr>
 nmap <leader>a :Ack<Space>
+nmap <leader>gd <Plug>(coc-definition)
+nmap <leader>gt <Plug>(coc-type-definition)
+nmap <leader>gi <Plug>(coc-implementation)
+nmap <leader>gr <Plug>(coc-references)
+
+nnoremap <leader>t :call <sid>show_documentation()<cr>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
