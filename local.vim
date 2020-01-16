@@ -37,6 +37,8 @@ Plug 'bakpakin/janet.vim'
 
 call plug#end()
 
+let &t_ut=''
+
 set swapfile directory=~/.vim/tmp
 set undofile undodir=~/.vim/tmp
 set backup backupdir=~/.vim/tmp
@@ -89,6 +91,7 @@ if has("gui_running")
 elseif has("gui_vimr")
     colorscheme autumnleaf
 else
+    set background=dark
     colorscheme flattown
 endif
 
