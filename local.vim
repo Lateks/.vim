@@ -74,7 +74,7 @@ if has("gui_running")
     set visualbell t_vb=
 
     if has("linux")
-        colorscheme flattown
+        colorscheme solarized
         set guifont=Source\ Code\ Pro\ 11
     else
         colorscheme autumnleaf
