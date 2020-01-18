@@ -113,6 +113,7 @@ if has("autocmd")
     au BufNewFile,BufRead,BufEnter *.glsl,*.vert,*.frag,*.geom set syntax=glsl
     au BufNewFile,BufRead,BufEnter *.qml set syntax=qml
     au FocusGained,BufEnter * :checktime
+    au BufWrite *             :silent! vimgrep /TODO\|FIXME/j %
 
     set autoread
 endif
