@@ -9,6 +9,7 @@ Plug 'tpope/vim-speeddating'
 Plug 'mattn/calendar-vim'
 
 Plug 'jceb/vim-orgmode'
+Plug 'vimwiki/vimwiki'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tommcdo/vim-fugitive-blame-ext'
