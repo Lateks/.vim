@@ -105,6 +105,8 @@ if has("autocmd")
     au FileType python      setlocal ts=4 sw=4 sts=4 expandtab
     au FileType javascript  setlocal ts=2 sw=2 sts=2 expandtab
     au FileType typescript  setlocal ts=2 sw=2 sts=2 expandtab
+    au FileType javascript  nmap <leader>f :Prettier<cr>
+    au FileType typescript  nmap <leader>f :Prettier<cr>
     au Filetype clojure     nmap <buffer> <leader>r :Require<cr>
     au BufNewFile,BufRead,BufEnter *.tsx setlocal ts=2 sw=2 sts=2 expandtab
     au BufNewFile,BufRead,BufEnter *.cpp,*.hpp set syntax=cpp11
@@ -160,7 +162,6 @@ let maplocalleader = "\\"
 nmap <leader>n :bn<cr>
 nmap <leader>p :bp<cr>
 nmap <leader>w :w<cr>
-nmap <leader>f :Prettier<cr>
 nmap <leader>d :bd<cr>
 nmap <leader>b :CtrlPBuffer<cr>
 nmap <leader>s :CtrlPMixed<cr>
