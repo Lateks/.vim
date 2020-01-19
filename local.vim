@@ -113,7 +113,6 @@ if has("autocmd")
     au BufNewFile,BufRead,BufEnter *.glsl,*.vert,*.frag,*.geom set syntax=glsl
     au BufNewFile,BufRead,BufEnter *.qml set syntax=qml
     au FocusGained,BufEnter * :checktime
-    au BufWrite *             :silent! vimgrep /TODO\|FIXME/j %
 
     set autoread
 endif
@@ -182,6 +181,7 @@ nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gt <Plug>(coc-type-definition)
 nmap <leader>gi <Plug>(coc-implementation)
 nmap <leader>gr <Plug>(coc-references)
+nmap <leader>T :silent! lvimgrep /TODO\\|FIXME/ %<cr>:lopen<cr>
 
 nnoremap <leader>t :call <sid>show_documentation()<cr>
 
