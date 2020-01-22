@@ -19,7 +19,11 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'vim-syntastic/syntastic'
 
+" Colors
 Plug 'altercation/vim-colors-solarized'
+Plug 'arcticicestudio/nord-vim'
+Plug 'jnurmine/Zenburn'
+Plug 'morhetz/gruvbox'
 
 Plug 'fatih/vim-go'
 
@@ -95,7 +99,7 @@ elseif has("gui_vimr")
     colorscheme autumnleaf
 else
     set background=dark
-    colorscheme flattown
+    colorscheme zenburn
 endif
 
 if has("autocmd")
