@@ -27,9 +27,6 @@ Plug 'morhetz/gruvbox'
 
 Plug 'fatih/vim-go'
 
-" LSP
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 " JS/TS/JSX etc.
 Plug 'leafgarland/typescript-vim'
 Plug 'mxw/vim-jsx'
@@ -159,8 +156,6 @@ let g:jsx_ext_required = 0
 let mapleader = ";"
 let maplocalleader = "\\"
 
-let g:syntastic_mode_map = { 'passive_filetypes': ['typescript', 'javascript'] }
-
 nmap <leader>n :bn<cr>
 nmap <leader>p :bp<cr>
 nmap <leader>w :w<cr>
@@ -177,18 +172,4 @@ nmap <leader>lo :lopen<cr>
 nmap <leader>lc :lcl<cr>
 nmap <leader>m :marks<cr>
 nmap <leader>a :Ack<Space>
-nmap <leader>gd <Plug>(coc-definition)
-nmap <leader>gt <Plug>(coc-type-definition)
-nmap <leader>gi <Plug>(coc-implementation)
-nmap <leader>gr <Plug>(coc-references)
 nmap <leader>T :silent! lvimgrep /TODO\\|FIXME/ %<cr>:lopen<cr>
-
-nnoremap <leader>t :call <sid>show_documentation()<cr>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
