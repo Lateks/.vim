@@ -184,7 +184,36 @@ let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 let g:go_metalinter_autosave = 1
 
 let g:airline_theme='zenburn'
-let g:airline#extensions#tabline#enabled = 1
+let g:airline_inactive_collapse=1
+let g:airline_symbols_ascii = 1
+let g:airline_extensions = ['branch', 'tabline', 'syntastic', 'languageclient', 'ctrlp']
+" Show file name only instead of full path.
+let g:airline_section_c = '%<%t%m%#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
+" Hide file encoding/format section.
+let g:airline_section_y = ''
+" Show only column number in the rightmost regularly visible section.
+let g:airline_section_z = '%3v'
+
+let g:airline_mode_map = {
+  \ '__'     : '-',
+  \ 'c'      : 'C',
+  \ 'i'      : 'I',
+  \ 'ic'     : 'I',
+  \ 'ix'     : 'I',
+  \ 'n'      : 'N',
+  \ 'multi'  : 'M',
+  \ 'ni'     : 'N',
+  \ 'no'     : 'N',
+  \ 'R'      : 'R',
+  \ 'Rv'     : 'R',
+  \ 's'      : 'S',
+  \ 'S'      : 'S',
+  \ ''     : 'S',
+  \ 't'      : 'T',
+  \ 'v'      : 'V',
+  \ 'V'      : 'V',
+  \ ''     : 'V',
+  \ }
 
 let g:jsx_ext_required = 0
 
