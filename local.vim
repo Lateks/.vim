@@ -25,6 +25,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'jnurmine/Zenburn'
 Plug 'morhetz/gruvbox'
 
+" Go
 Plug 'fatih/vim-go'
 
 " JS/TS/JSX etc.
@@ -38,6 +39,18 @@ Plug 'vim-scripts/paredit.vim'
 Plug 'venantius/vim-cljfmt'
 Plug 'bakpakin/janet.vim'
 
+" Deoplete
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+
+Plug 'deoplete-plugins/deoplete-go'
+
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
 call plug#end()
 
 " Background color fix for kitty terminal emu
@@ -48,6 +61,8 @@ set undofile undodir=~/.vim/tmp
 set backup backupdir=~/.vim/tmp
 
 filetype on
+
+set hidden
 
 set nocompatible
 set number
@@ -101,7 +116,7 @@ if has("autocmd")
     au FileType javascript  nmap <leader>f :Prettier<cr>
     au FileType typescript  nmap <leader>f :Prettier<cr>
     au BufNewFile,BufRead,BufEnter *.tsx setlocal ts=2 sw=2 sts=2 expandtab
-    autocmd BufWritePre,InsertLeave *.js,*.jsx,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.yaml,*.html PrettierAsync
+    autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.yaml,*.html PrettierAsync
 
     " Clojure
     au Filetype clojure     nmap <buffer> <leader>r :Require<cr>
@@ -130,6 +145,27 @@ endif
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'typescript': ['javascript-typescript-stdio'],
+    \ 'javascriptreact': ['javascript-typescript-stdio'],
+    \ 'typescriptreact': ['javascript-typescript-stdio'],
+\ }
+
+let g:LanguageClient_rootMarkers = {
+    \ 'javascript': ['jsconfig.json'],
+    \ 'typescript': ['tsconfig.json'],
+    \ 'javascriptreact': ['jsconfig.json'],
+    \ 'typescriptreact': ['tsconfig.json'],
+\ }
+
+call deoplete#custom#option('sources', {
+\ '_': ['LanguageClient'],
+\})
 
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -166,9 +202,25 @@ nmap <leader>tc :NERDTreeClose<cr>
 nmap <leader>l f<space>r<cr>
 nmap <leader>q :qa<cr>
 nmap <leader>co :copen<cr>
-nmap <leader>cc :ccl<cr>
-nmap <leader>lo :lopen<cr>
-nmap <leader>lc :lcl<cr>
+nmap <leader>o :lopen<cr>
 nmap <leader>m :marks<cr>
 nmap <leader>a :Ack<Space>
 nmap <leader>T :silent! lvimgrep /TODO\\|FIXME/ %<cr>:lopen<cr>
+
+function SetLSPShortcuts()
+  nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
+  nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
+  nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+  nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
+  nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
+  nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
+  nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
+  nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
+  nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
+  nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
+endfunction()
+
+augroup LSP
+  autocmd!
+  autocmd FileType typescript,javascript,typescriptreact,javascriptreact call SetLSPShortcuts()
+augroup END
