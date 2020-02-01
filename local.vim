@@ -49,7 +49,6 @@ set backup backupdir=~/.vim/tmp
 
 filetype on
 
-set background=light
 set nocompatible
 set number
 
@@ -68,6 +67,9 @@ set backspace=indent,eol,start
 set list
 set listchars=tab:»\ ,extends:❯,precedes:❮,trail:.,nbsp:.
 
+set background=dark
+colorscheme zenburn
+
 if has("gui_running")
     set go-=T
     set go-=m
@@ -79,24 +81,7 @@ if has("gui_running")
 
     set visualbell t_vb=
 
-    if has("linux")
-        colorscheme solarized
-        set guifont=Source\ Code\ Pro\ 11
-    else
-        colorscheme autumnleaf
-        if has("win32")
-            set guifont=Consolas:h12
-        elseif has("macunix")
-            set guifont=Menlo:h13
-        elseif has("unix")
-            set guifont=Fira\ Mono\ 11
-        endif
-    endif
-elseif has("gui_vimr")
-    colorscheme autumnleaf
-else
-    set background=dark
-    colorscheme zenburn
+    set guifont=Source\ Code\ Pro\ 11
 endif
 
 if has("autocmd")
@@ -148,7 +133,7 @@ let g:syntastic_go_checkers = ['govet', 'errcheck', 'go']
 let g:ctrlp_extensions = ['line', 'dir']
 let g:ctrlp_custom_ignore = { 'dir':  '\v[\/](node_modules|\.git)$' }
 
-let g:airline_theme='powerlineish'
+let g:airline_theme='zenburn'
 let g:airline#extensions#tabline#enabled = 1
 
 let g:jsx_ext_required = 0
