@@ -88,6 +88,7 @@ if has("autocmd")
     " Go
     au FileType go          setlocal noexpandtab
     au FileType go          setlocal nolist
+    au FileType go          nmap <leader>b :GoBuild<cr>
 
     " Scripting
     au FileType sh          setlocal ts=2 sw=2 sts=2 expandtab
@@ -140,10 +141,11 @@ let g:syntastic_ocaml_checkers = ['merlin']
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++'
 
-let g:syntastic_go_checkers = ['govet', 'errcheck', 'go']
-
 let g:ctrlp_extensions = ['line', 'dir']
 let g:ctrlp_custom_ignore = { 'dir':  '\v[\/](node_modules|\.git)$' }
+
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_autosave = 1
 
 let g:airline_theme='zenburn'
 let g:airline#extensions#tabline#enabled = 1
