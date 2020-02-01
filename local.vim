@@ -85,20 +85,32 @@ if has("gui_running")
 endif
 
 if has("autocmd")
+    " Go
     au FileType go          setlocal noexpandtab
     au FileType go          setlocal nolist
+
+    " Scripting
     au FileType sh          setlocal ts=2 sw=2 sts=2 expandtab
     au FileType ruby        setlocal ts=2 sw=2 sts=2 expandtab
     au FileType python      setlocal ts=4 sw=4 sts=4 expandtab
+
+    " JavaScript and TypeScript
     au FileType javascript  setlocal ts=2 sw=2 sts=2 expandtab
     au FileType typescript  setlocal ts=2 sw=2 sts=2 expandtab
     au FileType javascript  nmap <leader>f :Prettier<cr>
     au FileType typescript  nmap <leader>f :Prettier<cr>
-    au Filetype clojure     nmap <buffer> <leader>r :Require<cr>
     au BufNewFile,BufRead,BufEnter *.tsx setlocal ts=2 sw=2 sts=2 expandtab
+    autocmd BufWritePre,InsertLeave *.js,*.jsx,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.yaml,*.html PrettierAsync
+
+    " Clojure
+    au Filetype clojure     nmap <buffer> <leader>r :Require<cr>
+
+    " C/C++ and graphics
     au BufNewFile,BufRead,BufEnter *.cpp,*.hpp set syntax=cpp11
     au BufNewFile,BufRead,BufEnter *.glsl,*.vert,*.frag,*.geom set syntax=glsl
     au BufNewFile,BufRead,BufEnter *.qml set syntax=qml
+
+    " General
     au FocusGained,BufEnter * :checktime
 
     set autoread
