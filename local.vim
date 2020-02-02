@@ -39,6 +39,10 @@ Plug 'autozimu/LanguageClient-neovim', {
 " Go
 Plug 'fatih/vim-go'
 
+" Rust
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
+
 " JS/TS/JSX etc.
 Plug 'leafgarland/typescript-vim'
 Plug 'mxw/vim-jsx'
