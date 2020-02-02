@@ -1,29 +1,39 @@
 call plug#begin('~/.vim/plugged')
 
+" Search and navigation
 Plug 'mileszs/ack.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 
+" Utility
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-speeddating'
 Plug 'mattn/calendar-vim'
 
+" Org and documentation
 Plug 'jceb/vim-orgmode'
 Plug 'vimwiki/vimwiki'
 
+" Git
 Plug 'tpope/vim-fugitive'
 Plug 'tommcdo/vim-fugitive-blame-ext'
 
+" Statusline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
-Plug 'vim-syntastic/syntastic'
 
 " Colors
 Plug 'altercation/vim-colors-solarized'
 Plug 'arcticicestudio/nord-vim'
 Plug 'jnurmine/Zenburn'
 Plug 'morhetz/gruvbox'
+
+" Language server integration and error checking
+Plug 'vim-syntastic/syntastic'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 " Go
 Plug 'fatih/vim-go'
@@ -39,17 +49,12 @@ Plug 'vim-scripts/paredit.vim'
 Plug 'venantius/vim-cljfmt'
 Plug 'bakpakin/janet.vim'
 
-" Deoplete
+" Completion
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 
 Plug 'deoplete-plugins/deoplete-go'
-
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 
 call plug#end()
 
@@ -62,10 +67,10 @@ set backup backupdir=~/.vim/tmp
 
 filetype on
 
-set hidden
-
 set nocompatible
 set number
+
+set hidden
 
 set expandtab
 set shiftwidth=4
@@ -82,9 +87,11 @@ set backspace=indent,eol,start
 set list
 set listchars=tab:»\ ,extends:❯,precedes:❮,trail:.,nbsp:.
 
+" Colors
 set background=dark
 colorscheme zenburn
 
+" GUI vim
 if has("gui_running")
     set go-=T
     set go-=m
@@ -97,6 +104,11 @@ if has("gui_running")
     set visualbell t_vb=
 
     set guifont=Source\ Code\ Pro\ 11
+endif
+
+" Neovim
+if has("nvim")
+    :tnoremap <Esc> <C-\><C-n>
 endif
 
 if has("autocmd")
@@ -132,23 +144,19 @@ if has("autocmd")
     set autoread
 endif
 
-if has("nvim")
-    :tnoremap <Esc> <C-\><C-n>
-endif
-
+" Merlin configuration
 if executable('ocamlmerlin') && has('python')
   let s:ocamlmerlin = substitute(system('opam config var share'), '\n$', '', '''') . "/ocamlmerlin"
   execute "set rtp+=".s:ocamlmerlin."/vim"
   execute "set rtp+=".s:ocamlmerlin."/vimbufsync"
 endif
 
+" Ack configuration
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-
+" LanguageClient configuration
 let g:LanguageClient_serverCommands = {
     \ 'javascript': ['typescript-language-server', '--stdio'],
     \ 'typescript': ['typescript-language-server', '--stdio'],
@@ -163,10 +171,33 @@ let g:LanguageClient_rootMarkers = {
     \ 'typescriptreact': ['tsconfig.json'],
 \ }
 
+function SetLSPShortcuts()
+  nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
+  nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
+  nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+  nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
+  nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
+  nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
+  nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
+  nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
+  nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
+  nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
+endfunction()
+
+augroup LSP
+  autocmd!
+  autocmd FileType typescript,javascript,typescriptreact,javascriptreact call SetLSPShortcuts()
+augroup END
+
+" Deoplete completion configuration
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+
 call deoplete#custom#option('sources', {
 \ '_': ['LanguageClient'],
 \})
 
+" Syntastic configuration
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
@@ -177,13 +208,18 @@ let g:syntastic_ocaml_checkers = ['merlin']
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++'
 
+" Fuzzy search configuration
 let g:ctrlp_extensions = ['line', 'dir']
 let g:ctrlp_custom_ignore = { 'dir':  '\v[\/](node_modules|\.git)$' }
+let g:ctrlp_mruf_relative = 1
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*
 
+" Vim-go configuration
 let g:go_metalinter_autosave_enabled = ['vet', 'errcheck', 'staticcheck', 'unused', 'gosimple', 'structcheck', 'varcheck', 'ineffassign', 'deadcode']
 let g:go_metalinter_enabled = ['vet', 'errcheck', 'staticcheck', 'unused', 'gosimple', 'structcheck', 'varcheck', 'ineffassign', 'deadcode']
 let g:go_metalinter_autosave = 1
 
+" Airline configuration
 let g:airline_theme='zenburn'
 let g:airline_inactive_collapse=1
 let g:airline_symbols_ascii = 1
@@ -195,10 +231,6 @@ let g:airline_section_c = '%<%t%m%#__accent_red#%{airline#util#wrap(airline#part
 let g:airline_section_y = ''
 " Show only column number in the rightmost regularly visible section.
 let g:airline_section_z = '%3v'
-
-let g:ctrlp_mruf_relative = 1
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*
-
 let g:airline_mode_map = {
   \ '__'     : '-',
   \ 'c'      : 'C',
@@ -220,8 +252,7 @@ let g:airline_mode_map = {
   \ ''     : 'V',
   \ }
 
-let g:jsx_ext_required = 0
-
+" Leader bindings
 let mapleader = ";"
 let maplocalleader = "\\"
 
@@ -240,21 +271,3 @@ nmap <leader>o :lopen<cr>
 nmap <leader>m :marks<cr>
 nmap <leader>a :Ack<Space>
 nmap <leader>T :silent! lvimgrep /TODO\\|FIXME/ %<cr>:lopen<cr>
-
-function SetLSPShortcuts()
-  nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
-  nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
-  nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
-  nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
-  nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
-  nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
-  nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
-  nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
-  nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
-  nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
-endfunction()
-
-augroup LSP
-  autocmd!
-  autocmd FileType typescript,javascript,typescriptreact,javascriptreact call SetLSPShortcuts()
-augroup END
