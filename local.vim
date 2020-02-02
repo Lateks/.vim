@@ -171,6 +171,7 @@ endif
 " LanguageClient configuration
 let g:LanguageClient_serverCommands = {
     \ 'cpp': ['clangd'],
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
     \ 'javascript': ['typescript-language-server', '--stdio'],
     \ 'typescript': ['typescript-language-server', '--stdio'],
     \ 'javascriptreact': ['typescript-language-server', '--stdio'],
