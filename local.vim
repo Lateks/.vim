@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'mileszs/ack.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'mattesgroeger/vim-bookmarks'
 
 " Utility
 Plug 'tpope/vim-surround'
@@ -224,6 +225,10 @@ let g:ctrlp_extensions = ['line', 'dir']
 let g:ctrlp_custom_ignore = { 'dir':  '\v[\/](node_modules|\.git)$' }
 let g:ctrlp_mruf_relative = 1
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*
+
+" Vim-bookmarks configuration
+let g:bookmark_save_per_working_dir = 1
+let g:bookmark_auto_save = 1
 
 " Vim-go configuration
 let g:go_auto_type_info = 1
