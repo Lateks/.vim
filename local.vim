@@ -72,6 +72,8 @@ set number
 
 set hidden
 
+set autowrite
+
 set expandtab
 set shiftwidth=4
 set softtabstop=4
@@ -115,7 +117,11 @@ if has("autocmd")
     " Go
     au FileType go          setlocal noexpandtab
     au FileType go          setlocal nolist
-    au FileType go          nmap <leader>gb :GoBuild<cr>
+    au FileType go          nmap <leader>gb :<C-u>call <SID>build_go_files()<CR>
+    au FileType go          nmap <leader>gi :GoInfo<cr>
+    au FileType go          nmap <leader>ga :GoAlternate<cr>
+    au FileType go          map <C-n> :cnext<cr>
+    au FileType go          map <C-m> :cprevious<cr>
 
     " Scripting
     au FileType sh          setlocal ts=2 sw=2 sts=2 expandtab
@@ -215,9 +221,19 @@ let g:ctrlp_mruf_relative = 1
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*
 
 " Vim-go configuration
+let g:go_auto_type_info = 1
 let g:go_metalinter_autosave_enabled = ['vet', 'errcheck', 'staticcheck', 'unused', 'gosimple', 'structcheck', 'varcheck', 'ineffassign', 'deadcode']
 let g:go_metalinter_enabled = ['vet', 'errcheck', 'staticcheck', 'unused', 'gosimple', 'structcheck', 'varcheck', 'ineffassign', 'deadcode']
 let g:go_metalinter_autosave = 1
+
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
 
 " Airline configuration
 let g:airline_theme='zenburn'
