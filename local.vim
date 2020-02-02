@@ -170,6 +170,7 @@ endif
 
 " LanguageClient configuration
 let g:LanguageClient_serverCommands = {
+    \ 'cpp': ['clangd'],
     \ 'javascript': ['typescript-language-server', '--stdio'],
     \ 'typescript': ['typescript-language-server', '--stdio'],
     \ 'javascriptreact': ['typescript-language-server', '--stdio'],
@@ -218,7 +219,7 @@ let g:syntastic_aggregate_errors = 1
 let g:syntastic_ocaml_checkers = ['merlin']
 
 let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++'
+let g:syntastic_cpp_compiler_options = '-std=c++17 -stdlib=libc++'
 
 " Fuzzy search configuration
 let g:ctrlp_extensions = ['line', 'dir']
