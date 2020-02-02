@@ -197,6 +197,7 @@ let g:airline_section_y = ''
 let g:airline_section_z = '%3v'
 
 let g:ctrlp_mruf_relative = 1
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*
 
 let g:airline_mode_map = {
   \ '__'     : '-',
