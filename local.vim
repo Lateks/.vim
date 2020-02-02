@@ -103,7 +103,7 @@ if has("autocmd")
     " Go
     au FileType go          setlocal noexpandtab
     au FileType go          setlocal nolist
-    au FileType go          nmap <leader>b :GoBuild<cr>
+    au FileType go          nmap <leader>gb :GoBuild<cr>
 
     " Scripting
     au FileType sh          setlocal ts=2 sw=2 sts=2 expandtab
