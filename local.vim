@@ -8,6 +8,7 @@ Plug 'scrooloose/nerdtree'
 " Utility
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-endwise'
 Plug 'mattn/calendar-vim'
 
 " Org and documentation
