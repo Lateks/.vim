@@ -195,6 +195,8 @@ let g:airline_section_y = ''
 " Show only column number in the rightmost regularly visible section.
 let g:airline_section_z = '%3v'
 
+let g:ctrlp_mruf_relative = 1
+
 let g:airline_mode_map = {
   \ '__'     : '-',
   \ 'c'      : 'C',
