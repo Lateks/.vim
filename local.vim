@@ -251,8 +251,7 @@ endfunction
 let g:airline_theme='zenburn'
 let g:airline_inactive_collapse=1
 let g:airline_symbols_ascii = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_extensions = ['branch', 'tabline', 'syntastic', 'languageclient', 'ctrlp']
+let g:airline_extensions = ['branch', 'syntastic', 'languageclient', 'ctrlp']
 " Show file name only instead of full path.
 let g:airline_section_c = '%<%t%m%#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
 " Hide file encoding/format section.
