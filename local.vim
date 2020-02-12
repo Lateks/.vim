@@ -242,7 +242,7 @@ let g:bookmark_auto_save = 1
 " Vim-go configuration
 let g:go_auto_type_info = 1
 let g:go_rename_command = 'gopls'
-let g:go_metalinter_enabled = ['vet', 'errcheck', 'staticcheck', 'unused', 'gosimple', 'structcheck', 'varcheck', 'ineffassign', 'deadcode', 'gosec']
+let g:go_metalinter_enabled = ['vet', 'errcheck', 'staticcheck', 'unused', 'gosimple', 'structcheck', 'varcheck', 'ineffassign', 'deadcode', 'gosec', 'golint']
 
 function! s:build_go_files()
   let l:file = expand('%')
