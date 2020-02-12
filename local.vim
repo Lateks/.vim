@@ -129,6 +129,7 @@ if has("autocmd")
     au FileType go          nmap <leader>gb :<C-u>call <SID>build_go_files()<CR>
     au FileType go          nmap <leader>gi :GoInfo<cr>
     au FileType go          nmap <leader>ga :GoAlternate<cr>
+    au FileType go          nmap <leader>gl :GoMetaLinter<cr>
     au FileType go          map <C-n> :cnext<cr>
     au FileType go          map <C-m> :cprevious<cr>
 
@@ -241,9 +242,7 @@ let g:bookmark_auto_save = 1
 " Vim-go configuration
 let g:go_auto_type_info = 1
 let g:go_rename_command = 'gopls'
-let g:go_metalinter_autosave_enabled = ['vet', 'errcheck', 'staticcheck', 'unused', 'gosimple', 'structcheck', 'varcheck', 'ineffassign', 'deadcode']
-let g:go_metalinter_enabled = ['vet', 'errcheck', 'staticcheck', 'unused', 'gosimple', 'structcheck', 'varcheck', 'ineffassign', 'deadcode']
-let g:go_metalinter_autosave = 1
+let g:go_metalinter_enabled = ['vet', 'errcheck', 'staticcheck', 'unused', 'gosimple', 'structcheck', 'varcheck', 'ineffassign', 'deadcode', 'gosec']
 
 function! s:build_go_files()
   let l:file = expand('%')
