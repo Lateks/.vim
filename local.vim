@@ -42,7 +42,6 @@ Plug 'fatih/vim-go'
 
 " Rust
 Plug 'rust-lang/rust.vim'
-Plug 'racer-rust/vim-racer'
 
 " JS/TS/JSX etc.
 Plug 'leafgarland/typescript-vim'
@@ -178,7 +177,7 @@ endif
 " LanguageClient configuration
 let g:LanguageClient_serverCommands = {
     \ 'cpp': ['clangd'],
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ 'javascript': ['typescript-language-server', '--stdio'],
     \ 'typescript': ['typescript-language-server', '--stdio'],
     \ 'javascriptreact': ['typescript-language-server', '--stdio'],
@@ -252,6 +251,9 @@ function! s:build_go_files()
     call go#cmd#Build(0)
   endif
 endfunction
+
+" Rust.vim configuration
+let g:rustfmt_autosave = 1
 
 " Airline configuration
 let g:airline_theme='zenburn'
