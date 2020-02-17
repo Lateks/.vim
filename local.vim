@@ -37,6 +37,9 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 
+" Ctags
+Plug 'majutsushi/tagbar'
+
 " Go
 Plug 'fatih/vim-go'
 
@@ -305,3 +308,4 @@ nmap <leader>o :lopen<cr>
 nmap <leader>m :marks<cr>
 nmap <leader>a :Ack<Space>
 nmap <leader>T :silent! lvimgrep /TODO\\|FIXME/ %<cr>:lopen<cr>
+nmap <leader>tt :TagbarToggle<CR>
