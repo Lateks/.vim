@@ -297,7 +297,6 @@ nmap <leader>b :CtrlPBuffer<cr>
 nmap <leader>s :CtrlPMixed<cr>
 nmap <leader>to :NERDTree<cr>
 nmap <leader>tc :NERDTreeClose<cr>
-nmap <leader>l f<space>r<cr>
 nmap <leader>q :qa<cr>
 nmap <leader>co :copen<cr>
 nmap <leader>o :lopen<cr>
