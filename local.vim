@@ -231,7 +231,7 @@ let g:syntastic_cpp_compiler_options = '-std=c++17 -stdlib=libc++'
 
 " Fuzzy search configuration
 let g:ctrlp_extensions = ['line', 'dir']
-let g:ctrlp_custom_ignore = { 'dir':  '\v[\/](node_modules|\.git)$' }
+let g:ctrlp_custom_ignore = { 'dir':  '\v[\/](node_modules|\.git|target)$' }
 let g:ctrlp_mruf_relative = 1
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*
 
