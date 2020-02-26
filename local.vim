@@ -48,7 +48,6 @@ Plug 'rust-lang/rust.vim'
 
 " JS/TS/JSX etc.
 Plug 'leafgarland/typescript-vim'
-Plug 'mxw/vim-jsx'
 Plug 'prettier/vim-prettier'
 
 " Lisp/Clojure/Racket etc.
@@ -183,15 +182,7 @@ let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ 'javascript': ['typescript-language-server', '--stdio'],
     \ 'typescript': ['typescript-language-server', '--stdio'],
-    \ 'javascriptreact': ['typescript-language-server', '--stdio'],
     \ 'typescriptreact': ['typescript-language-server', '--stdio'],
-\ }
-
-let g:LanguageClient_rootMarkers = {
-    \ 'javascript': ['jsconfig.json'],
-    \ 'typescript': ['tsconfig.json'],
-    \ 'javascriptreact': ['jsconfig.json'],
-    \ 'typescriptreact': ['tsconfig.json'],
 \ }
 
 function SetLSPShortcuts()
