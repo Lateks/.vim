@@ -57,7 +57,8 @@ Plug 'venantius/vim-cljfmt'
 Plug 'bakpakin/janet.vim'
 
 " Nand2Tetris
-Plug  'KitN/nand2-vim-syn'
+Plug 'KitN/nand2-vim-syn'
+Plug 'zirrostig/vim-jack-syntax'
 
 " Completion
 Plug 'Shougo/deoplete.nvim'
