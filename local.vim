@@ -84,6 +84,7 @@ set number
 set hidden
 
 set autowrite
+set updatetime=500
 
 set expandtab
 set shiftwidth=4
@@ -145,8 +146,11 @@ if has("autocmd")
     au FileType typescript  setlocal ts=2 sw=2 sts=2 expandtab
     au FileType javascript  nmap <leader>f :Prettier<cr>
     au FileType typescript  nmap <leader>f :Prettier<cr>
+    au FileType javascript  nnoremap gd :call LanguageClient#textDocument_definition()<cr>
+    au FileType javascript  nnoremap gd :call LanguageClient#textDocument_definition()<cr>
+    au CursorHold *.js,*.ts,*.tsx,*.jsx call LanguageClient#textDocument_hover()
     au BufNewFile,BufRead,BufEnter *.tsx setlocal ts=2 sw=2 sts=2 expandtab
-    autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.yaml,*.html PrettierAsync
+    au BufWritePre *.js,*.jsx,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.yaml,*.html PrettierAsync
 
     " Clojure
     au Filetype clojure     nmap <buffer> <leader>r :Require<cr>
