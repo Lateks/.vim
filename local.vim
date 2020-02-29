@@ -136,6 +136,10 @@ if has("autocmd")
     au FileType go          map <C-n> :cnext<cr>
     au FileType go          map <C-m> :cprevious<cr>
 
+    " Rust
+    au FileType rust        nnoremap gd :call LanguageClient#textDocument_definition()<cr>
+    au CursorHold *.rs      call LanguageClient#textDocument_hover()
+
     " Scripting
     au FileType sh          setlocal ts=2 sw=2 sts=2 expandtab
     au FileType ruby        setlocal ts=2 sw=2 sts=2 expandtab
