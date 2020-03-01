@@ -138,7 +138,6 @@ if has("autocmd")
 
     " Rust
     au FileType rust        nnoremap gd :call LanguageClient#textDocument_definition()<cr>
-    au CursorHold *.rs      call LanguageClient#textDocument_hover()
 
     " Scripting
     au FileType sh          setlocal ts=2 sw=2 sts=2 expandtab
@@ -186,6 +185,7 @@ if executable('ag')
 endif
 
 " LanguageClient configuration
+let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
     \ 'cpp': ['clangd'],
     \ 'rust': ['rustup', 'run', 'stable', 'rls'],
@@ -209,7 +209,7 @@ endfunction()
 
 augroup LSP
   autocmd!
-  autocmd FileType typescript,javascript,typescriptreact,javascriptreact call SetLSPShortcuts()
+  autocmd FileType typescript,javascript,typescriptreact,javascriptreact,rust call SetLSPShortcuts()
 augroup END
 
 " Deoplete completion configuration
