@@ -309,3 +309,6 @@ nmap <leader>m :marks<cr>
 nmap <leader>a :Ack<Space>
 nmap <leader>T :silent! lvimgrep /TODO\\|FIXME/ %<cr>:lopen<cr>
 nmap <leader>tt :TagbarToggle<CR>
+
+" Clear sign column (if signs left over by e.g. rls + LanguageClient).
+nmap <leader>cl :sign unplace *<cr>
