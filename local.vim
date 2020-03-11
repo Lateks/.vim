@@ -136,9 +136,6 @@ if has("autocmd")
     au FileType go          map <C-n> :cnext<cr>
     au FileType go          map <C-m> :cprevious<cr>
 
-    " Rust
-    au FileType rust        nnoremap gd :call LanguageClient#textDocument_definition()<cr>
-
     " Scripting
     au FileType sh          setlocal ts=2 sw=2 sts=2 expandtab
     au FileType ruby        setlocal ts=2 sw=2 sts=2 expandtab
@@ -149,8 +146,6 @@ if has("autocmd")
     au FileType typescript  setlocal ts=2 sw=2 sts=2 expandtab
     au FileType javascript  nmap <leader>f :Prettier<cr>
     au FileType typescript  nmap <leader>f :Prettier<cr>
-    au FileType javascript  nnoremap gd :call LanguageClient#textDocument_definition()<cr>
-    au FileType javascript  nnoremap gd :call LanguageClient#textDocument_definition()<cr>
     au CursorHold *.js,*.ts,*.tsx,*.jsx call LanguageClient#textDocument_hover()
     au BufNewFile,BufRead,BufEnter *.tsx setlocal ts=2 sw=2 sts=2 expandtab
     au BufWritePre *.js,*.jsx,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.yaml,*.html PrettierAsync
@@ -195,7 +190,7 @@ let g:LanguageClient_serverCommands = {
 \ }
 
 function SetLSPShortcuts()
-  nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
+  nnoremap gd :call LanguageClient#textDocument_definition()<CR>
   nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
   nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
   nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
