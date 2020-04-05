@@ -11,6 +11,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-endwise'
 Plug 'mattn/calendar-vim'
+Plug 'sbdchd/neoformat'
 
 " Org and documentation
 Plug 'jceb/vim-orgmode'
@@ -170,6 +171,16 @@ endif
 " Merlin configuration
 let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
 execute "set rtp+=" . g:opamshare . "/merlin/vim"
+
+" Ocamlformat configuration
+let g:neoformat_ocaml_ocamlformat = {
+            \ 'exe': 'ocamlformat',
+            \ 'no_append': 1,
+            \ 'stdin': 1,
+            \ 'args': ['--disable-outside-detected-project', '--name', '"%:p"', '-']
+            \ }
+
+let g:neoformat_enabled_ocaml = ['ocamlformat']
 
 " Ack configuration
 if executable('ag')
