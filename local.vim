@@ -137,6 +137,10 @@ if has("autocmd")
     au FileType go          map <C-n> :cnext<cr>
     au FileType go          map <C-m> :cprevious<cr>
 
+    " OCaml
+    au FileType ocaml       setlocal ts=2 sw=2 sts=2 expandtab
+    au FileType ocaml       nmap <leader>f :Neoformat<cr>
+
     " Scripting
     au FileType sh          setlocal ts=2 sw=2 sts=2 expandtab
     au FileType ruby        setlocal ts=2 sw=2 sts=2 expandtab
@@ -149,7 +153,7 @@ if has("autocmd")
     au FileType typescript  nmap <leader>f :Prettier<cr>
     au CursorHold *.js,*.ts,*.tsx,*.jsx call LanguageClient#textDocument_hover()
     au BufNewFile,BufRead,BufEnter *.tsx setlocal ts=2 sw=2 sts=2 expandtab
-    au BufWritePre *.js,*.jsx,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.yaml,*.html PrettierAsync
+    au BufWritePre *.js,*.jsx,*.ts,*.tsx,*.css,*.less,*.scss,*.yaml,*.html PrettierAsync
 
     " Clojure
     au Filetype clojure     nmap <buffer> <leader>r :Require<cr>
