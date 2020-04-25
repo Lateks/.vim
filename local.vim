@@ -96,6 +96,7 @@ set smartindent
 set hlsearch
 set laststatus=2
 set smartcase
+set termguicolors
 
 set backspace=indent,eol,start
 
