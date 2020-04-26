@@ -30,6 +30,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'arcticicestudio/nord-vim'
 Plug 'jnurmine/Zenburn'
 Plug 'morhetz/gruvbox'
+Plug 'tjammer/blayu.vim'
 
 " Language server integration and error checking
 Plug 'vim-syntastic/syntastic'
