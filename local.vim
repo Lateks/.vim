@@ -106,7 +106,12 @@ set listchars=tab:»\ ,extends:❯,precedes:❮,trail:.,nbsp:.
 
 " Colors
 set background=dark
-colorscheme zenburn
+
+if hostname() == "saraswati"
+    colorscheme blayu
+else
+    colorscheme zenburn
+endif
 
 " GUI vim
 if has("gui_running")
