@@ -31,6 +31,8 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'jnurmine/Zenburn'
 Plug 'morhetz/gruvbox'
 Plug 'tjammer/blayu.vim'
+Plug 'vim-scripts/autumnleaf_modified.vim'
+Plug 'vim-scripts/summerfruit256.vim'
 
 " Language server integration and error checking
 Plug 'vim-syntastic/syntastic'
@@ -105,11 +107,11 @@ set list
 set listchars=tab:»\ ,extends:❯,precedes:❮,trail:.,nbsp:.
 
 " Colors
-set background=dark
-
 if hostname() == "saraswati"
-    colorscheme blayu
+    set background=light
+    colorscheme summerfruit256
 else
+    set background=dark
     colorscheme zenburn
 endif
 
