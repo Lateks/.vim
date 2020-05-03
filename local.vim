@@ -33,6 +33,7 @@ Plug 'morhetz/gruvbox'
 Plug 'tjammer/blayu.vim'
 Plug 'vim-scripts/autumnleaf_modified.vim'
 Plug 'vim-scripts/summerfruit256.vim'
+Plug 'chrisbra/Colorizer'
 
 " Language server integration and error checking
 Plug 'vim-syntastic/syntastic'
