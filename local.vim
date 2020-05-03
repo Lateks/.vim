@@ -329,3 +329,8 @@ nmap <leader>tt :TagbarToggle<CR>
 
 " Clear sign column (if signs left over by e.g. rls + LanguageClient).
 nmap <leader>cl :sign unplace *<cr>
+
+" Show syntax highlighting groups for the element under cursor
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
