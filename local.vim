@@ -78,6 +78,7 @@ set undofile undodir=~/.vim/tmp
 set backup backupdir=~/.vim/tmp
 
 filetype on
+filetype plugin on
 
 set nocompatible
 set number
@@ -133,16 +134,6 @@ if has("nvim")
 endif
 
 if has("autocmd")
-    " Go
-    au FileType go          setlocal noexpandtab
-    au FileType go          setlocal nolist
-    au FileType go          nmap <leader>gb :<C-u>call <SID>build_go_files()<CR>
-    au FileType go          nmap <leader>gi :GoInfo<cr>
-    au FileType go          nmap <leader>ga :GoAlternate<cr>
-    au FileType go          nmap <leader>gl :GoMetaLinter<cr>
-    au FileType go          map <C-n> :cnext<cr>
-    au FileType go          map <C-m> :cprevious<cr>
-
     " OCaml
     au FileType ocaml       setlocal ts=2 sw=2 sts=2 expandtab
     au FileType ocaml       nmap <leader>f :Neoformat<cr>
@@ -224,7 +215,6 @@ augroup END
 
 " Deoplete completion configuration
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
 call deoplete#custom#option('sources', {
 \ '_': ['LanguageClient'],
@@ -250,20 +240,6 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*
 " Vim-bookmarks configuration
 let g:bookmark_save_per_working_dir = 1
 let g:bookmark_auto_save = 1
-
-" Vim-go configuration
-let g:go_auto_type_info = 1
-let g:go_rename_command = 'gopls'
-let g:go_metalinter_enabled = ['vet', 'errcheck', 'staticcheck', 'unused', 'gosimple', 'structcheck', 'varcheck', 'ineffassign', 'deadcode', 'gosec', 'golint']
-
-function! s:build_go_files()
-  let l:file = expand('%')
-  if l:file =~# '^\f\+_test\.go$'
-    call go#test#Test(0, 1)
-  elseif l:file =~# '^\f\+\.go$'
-    call go#cmd#Build(0)
-  endif
-endfunction
 
 " Rust.vim configuration
 let g:rustfmt_autosave = 1
