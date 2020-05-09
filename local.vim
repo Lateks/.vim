@@ -97,7 +97,6 @@ set smartindent
 set hlsearch
 set laststatus=2
 set smartcase
-set termguicolors
 
 set backspace=indent,eol,start
 
@@ -105,6 +104,7 @@ set list
 set listchars=tab:»\ ,extends:❯,precedes:❮,trail:.,nbsp:.
 
 " Colors
+set termguicolors
 if hostname() == "saraswati"
     set background=light
     colorscheme summerfruit256
