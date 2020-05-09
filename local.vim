@@ -53,7 +53,6 @@ Plug 'rust-lang/rust.vim'
 
 " JS/TS/JSX etc.
 Plug 'leafgarland/typescript-vim'
-Plug 'prettier/vim-prettier'
 
 " Lisp/Clojure/Racket etc.
 Plug 'tpope/vim-fireplace'
@@ -135,7 +134,6 @@ endif
 if has("autocmd")
     " JavaScript and TypeScript
     au CursorHold *.js,*.ts,*.tsx,*.jsx call LanguageClient#textDocument_hover()
-    au BufWritePre *.js,*.jsx,*.ts,*.tsx,*.css,*.less,*.scss,*.yaml,*.html PrettierAsync
 
     " C/C++ and graphics
     au BufNewFile,BufRead,BufEnter *.cpp,*.hpp set syntax=cpp11
@@ -262,6 +260,7 @@ nmap <leader>m :marks<cr>
 nmap <leader>a :Ack<Space>
 nmap <leader>T :silent! lvimgrep /TODO\\|FIXME/ %<cr>:lopen<cr>
 nmap <leader>tt :TagbarToggle<CR>
+nmap <leader>f :Neoformat<cr>
 
 " Clear sign column (if signs left over by e.g. rls + LanguageClient).
 nmap <leader>cl :sign unplace *<cr>
