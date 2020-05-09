@@ -135,11 +135,6 @@ if has("autocmd")
     " JavaScript and TypeScript
     au CursorHold *.js,*.ts,*.tsx,*.jsx call LanguageClient#textDocument_hover()
 
-    " C/C++ and graphics
-    au BufNewFile,BufRead,BufEnter *.cpp,*.hpp set syntax=cpp11
-    au BufNewFile,BufRead,BufEnter *.glsl,*.vert,*.frag,*.geom set syntax=glsl
-    au BufNewFile,BufRead,BufEnter *.qml set syntax=qml
-
     " General
     au FocusGained,BufEnter * :checktime
 
@@ -154,6 +149,7 @@ endif
 " LanguageClient configuration
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
+    \ 'c': ['clangd'],
     \ 'cpp': ['clangd'],
     \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ 'javascript': ['typescript-language-server', '--stdio'],
@@ -176,7 +172,7 @@ endfunction()
 
 augroup LSP
   autocmd!
-  autocmd FileType typescript,javascript,typescriptreact,javascriptreact,rust call SetLSPShortcuts()
+  autocmd FileType typescript,javascript,typescriptreact,javascriptreact,rust,c,cpp call SetLSPShortcuts()
 augroup END
 
 " Deoplete completion configuration
