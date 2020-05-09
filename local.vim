@@ -134,10 +134,6 @@ if has("nvim")
 endif
 
 if has("autocmd")
-    " OCaml
-    au FileType ocaml       setlocal ts=2 sw=2 sts=2 expandtab
-    au FileType ocaml       nmap <leader>f :Neoformat<cr>
-
     " Scripting
     au FileType sh          setlocal ts=2 sw=2 sts=2 expandtab
     au FileType ruby        setlocal ts=2 sw=2 sts=2 expandtab
@@ -165,20 +161,6 @@ if has("autocmd")
 
     set autoread
 endif
-
-" Merlin configuration
-let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
-
-" Ocamlformat configuration
-let g:neoformat_ocaml_ocamlformat = {
-            \ 'exe': 'ocamlformat',
-            \ 'no_append': 1,
-            \ 'stdin': 1,
-            \ 'args': ['--disable-outside-detected-project', '--name', '"%:p"', '-']
-            \ }
-
-let g:neoformat_enabled_ocaml = ['ocamlformat']
 
 " Ack configuration
 if executable('ag')
@@ -220,13 +202,15 @@ call deoplete#custom#option('sources', {
 \ '_': ['LanguageClient'],
 \})
 
+" Merlin configuration
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
+
 " Syntastic configuration
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_aggregate_errors = 1
-
-let g:syntastic_ocaml_checkers = ['merlin']
 
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = '-std=c++17 -stdlib=libc++'
