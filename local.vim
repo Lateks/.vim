@@ -89,9 +89,6 @@ set autowrite
 set updatetime=500
 
 set expandtab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
 set autoindent
 set smartindent
 set hlsearch
@@ -102,6 +99,8 @@ set backspace=indent,eol,start
 
 set list
 set listchars=tab:»\ ,extends:❯,precedes:❮,trail:.,nbsp:.
+
+set ts=2 sw=2 sts=2 expandtab
 
 " Colors
 set termguicolors
@@ -134,22 +133,9 @@ if has("nvim")
 endif
 
 if has("autocmd")
-    " Scripting
-    au FileType sh          setlocal ts=2 sw=2 sts=2 expandtab
-    au FileType ruby        setlocal ts=2 sw=2 sts=2 expandtab
-    au FileType python      setlocal ts=4 sw=4 sts=4 expandtab
-
     " JavaScript and TypeScript
-    au FileType javascript  setlocal ts=2 sw=2 sts=2 expandtab
-    au FileType typescript  setlocal ts=2 sw=2 sts=2 expandtab
-    au FileType javascript  nmap <leader>f :Prettier<cr>
-    au FileType typescript  nmap <leader>f :Prettier<cr>
     au CursorHold *.js,*.ts,*.tsx,*.jsx call LanguageClient#textDocument_hover()
-    au BufNewFile,BufRead,BufEnter *.tsx setlocal ts=2 sw=2 sts=2 expandtab
     au BufWritePre *.js,*.jsx,*.ts,*.tsx,*.css,*.less,*.scss,*.yaml,*.html PrettierAsync
-
-    " Clojure
-    au Filetype clojure     nmap <buffer> <leader>r :Require<cr>
 
     " C/C++ and graphics
     au BufNewFile,BufRead,BufEnter *.cpp,*.hpp set syntax=cpp11
@@ -224,9 +210,6 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*
 " Vim-bookmarks configuration
 let g:bookmark_save_per_working_dir = 1
 let g:bookmark_auto_save = 1
-
-" Rust.vim configuration
-let g:rustfmt_autosave = 1
 
 " Airline configuration
 let g:airline_theme='zenburn'
