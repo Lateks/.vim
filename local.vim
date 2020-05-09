@@ -61,10 +61,6 @@ Plug 'vim-scripts/paredit.vim'
 Plug 'venantius/vim-cljfmt'
 Plug 'bakpakin/janet.vim'
 
-" Nand2Tetris
-Plug 'KitN/nand2-vim-syn'
-Plug 'zirrostig/vim-jack-syntax'
-
 " Completion
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
@@ -172,9 +168,6 @@ if has("autocmd")
     au BufNewFile,BufRead,BufEnter *.cpp,*.hpp set syntax=cpp11
     au BufNewFile,BufRead,BufEnter *.glsl,*.vert,*.frag,*.geom set syntax=glsl
     au BufNewFile,BufRead,BufEnter *.qml set syntax=qml
-
-    " Nand2Tetris
-    au BufNewFile,BufRead,BufEnter *.hdl set syntax=nandhdl
 
     " General
     au FocusGained,BufEnter * :checktime
