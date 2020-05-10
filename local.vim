@@ -51,6 +51,9 @@ Plug 'fatih/vim-go'
 " Rust
 Plug 'rust-lang/rust.vim'
 
+" Zig
+Plug 'ziglang/zig.vim'
+
 " JS/TS/JSX etc.
 Plug 'leafgarland/typescript-vim'
 
