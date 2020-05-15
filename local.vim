@@ -100,6 +100,7 @@ set autoindent
 set smartindent
 set hlsearch
 set laststatus=2
+set ignorecase
 set smartcase
 
 set backspace=indent,eol,start
