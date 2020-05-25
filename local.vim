@@ -142,7 +142,6 @@ endif
 
 if has("autocmd")
     " JavaScript and TypeScript
-    au CursorHold *.js,*.ts,*.tsx,*.jsx call LanguageClient#textDocument_hover()
     au BufWritePre *.js,*.jsx,*.ts,*.tsx,*.css,*.less,*.scss,*.yaml,*.html PrettierAsync
 
     " General
