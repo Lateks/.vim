@@ -48,6 +48,9 @@ Plug 'majutsushi/tagbar'
 " Go
 Plug 'fatih/vim-go'
 
+" Ocaml and ReasonML
+Plug 'reasonml-editor/vim-reason-plus'
+
 " Rust
 Plug 'rust-lang/rust.vim'
 
@@ -161,6 +164,8 @@ let g:LanguageClient_serverCommands = {
     \ 'c': ['clangd'],
     \ 'cpp': ['clangd'],
     \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+    \ 'ocaml': ['ocaml-language-server', '--stdio'],
+    \ 'reason': ['ocaml-language-server', '--stdio'],
     \ 'javascript': ['typescript-language-server', '--stdio'],
     \ 'typescript': ['typescript-language-server', '--stdio'],
     \ 'typescriptreact': ['typescript-language-server', '--stdio'],
@@ -190,10 +195,6 @@ let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('sources', {
 \ '_': ['LanguageClient'],
 \})
-
-" Merlin configuration
-let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
 
 " Syntastic configuration
 let g:syntastic_auto_loc_list = 1

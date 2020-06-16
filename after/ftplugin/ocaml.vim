@@ -10,6 +10,3 @@ let g:neoformat_ocaml_ocamlformat = {
             \ }
 
 let g:neoformat_enabled_ocaml = ['ocamlformat']
-
-" Syntastic configuration
-let g:syntastic_ocaml_checkers = ['merlin']
