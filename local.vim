@@ -11,7 +11,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-endwise'
 Plug 'mattn/calendar-vim'
-Plug 'sbdchd/neoformat'
 
 " Org and documentation
 Plug 'jceb/vim-orgmode'
@@ -36,11 +35,11 @@ Plug 'vim-scripts/summerfruit256.vim'
 Plug 'chrisbra/Colorizer'
 
 " Language server integration and error checking
-Plug 'vim-syntastic/syntastic'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
+Plug 'dense-analysis/ale'
 
 " Ctags
 Plug 'majutsushi/tagbar'
@@ -158,6 +157,9 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
+" Ale configuration
+let g:ale_fix_on_save = 1
+
 " LanguageClient configuration
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
@@ -196,15 +198,6 @@ call deoplete#custom#option('sources', {
 \ '_': ['LanguageClient'],
 \})
 
-" Syntastic configuration
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_aggregate_errors = 1
-
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = '-std=c++17 -stdlib=libc++'
-
 " Fuzzy search configuration
 let g:ctrlp_extensions = ['line', 'dir']
 let g:ctrlp_custom_ignore = { 'dir':  '\v[\/](node_modules|\.git|target|dist)$' }
@@ -219,7 +212,7 @@ let g:bookmark_auto_save = 1
 let g:airline_theme='zenburn'
 let g:airline_inactive_collapse=1
 let g:airline_symbols_ascii = 1
-let g:airline_extensions = ['branch', 'syntastic', 'languageclient', 'ctrlp']
+let g:airline_extensions = ['branch', 'languageclient', 'ctrlp']
 " Show file name only instead of full path.
 let g:airline_section_c = '%<%t%m%#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
 " Hide file encoding/format section.
