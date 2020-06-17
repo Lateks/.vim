@@ -58,7 +58,7 @@ Plug 'ziglang/zig.vim'
 
 " JS/TS/JSX etc.
 Plug 'leafgarland/typescript-vim'
-Plug 'prettier/vim-prettier'
+Plug 'peitalin/vim-jsx-typescript'
 
 " Lisp/Clojure/Racket etc.
 Plug 'tpope/vim-fireplace'
@@ -143,9 +143,6 @@ if has("nvim")
 endif
 
 if has("autocmd")
-    " JavaScript and TypeScript
-    au BufWritePre *.js,*.jsx,*.ts,*.tsx,*.css,*.less,*.scss,*.yaml,*.html PrettierAsync
-
     " General
     au FocusGained,BufEnter * :checktime
 
@@ -169,8 +166,9 @@ let g:LanguageClient_serverCommands = {
     \ 'ocaml': ['ocaml-language-server', '--stdio'],
     \ 'reason': ['ocaml-language-server', '--stdio'],
     \ 'javascript': ['typescript-language-server', '--stdio'],
+    \ 'javascript.jsx': ['typescript-language-server', '--stdio'],
     \ 'typescript': ['typescript-language-server', '--stdio'],
-    \ 'typescriptreact': ['typescript-language-server', '--stdio'],
+    \ 'typescript.tsx': ['typescript-language-server', '--stdio'],
 \ }
 
 function SetLSPShortcuts()
@@ -188,7 +186,7 @@ endfunction()
 
 augroup LSP
   autocmd!
-  autocmd FileType typescript,javascript,typescriptreact,javascriptreact,rust,c,cpp call SetLSPShortcuts()
+  autocmd FileType typescript,javascript,typescript.tsx,javascript.jsx,rust,c,cpp call SetLSPShortcuts()
 augroup END
 
 " Deoplete completion configuration
