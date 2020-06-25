@@ -47,6 +47,9 @@ Plug 'majutsushi/tagbar'
 " Go
 Plug 'fatih/vim-go'
 
+" Python
+Plug 'vim-python/python-syntax'
+
 " Ocaml and ReasonML
 Plug 'reasonml-editor/vim-reason-plus'
 
