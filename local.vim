@@ -165,6 +165,7 @@ let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
     \ 'c': ['clangd'],
     \ 'cpp': ['clangd'],
+    \ 'python': ['pyls'],
     \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ 'ocaml': ['ocaml-language-server', '--stdio'],
     \ 'reason': ['ocaml-language-server', '--stdio'],
@@ -189,7 +190,7 @@ endfunction()
 
 augroup LSP
   autocmd!
-  autocmd FileType typescript,javascript,typescript.tsx,javascript.jsx,rust,c,cpp call SetLSPShortcuts()
+  autocmd FileType typescript,javascript,typescript.tsx,javascript.jsx,rust,c,cpp,python call SetLSPShortcuts()
 augroup END
 
 " Deoplete completion configuration
