@@ -148,6 +148,8 @@ endif
 if has("autocmd")
     " General
     au FocusGained,BufEnter * :checktime
+    au FileType javascriptreact set filetype=javascript.jsx
+    au FileType typescriptreact set filetype=typescript.tsx
 
     set autoread
 endif
