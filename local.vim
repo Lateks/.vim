@@ -192,7 +192,7 @@ endfunction()
 
 augroup LSP
   autocmd!
-  autocmd FileType typescript,javascript,typescript.tsx,javascript.jsx,rust,c,cpp,python call SetLSPShortcuts()
+  autocmd FileType typescript,javascript,typescript.tsx,javascript.jsx,rust,c,cpp,python,ocaml call SetLSPShortcuts()
 augroup END
 
 " Deoplete completion configuration
