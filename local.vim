@@ -119,7 +119,7 @@ set ts=2 sw=2 sts=2 expandtab
 set termguicolors
 if hostname() == "saraswati"
     set background=light
-    colorscheme summerfruit256
+    colorscheme gruvbox
 else
     set background=dark
     colorscheme zenburn
